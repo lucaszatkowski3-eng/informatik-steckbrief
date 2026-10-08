@@ -1,0 +1,66 @@
+body{
+  color: white;
+  background-color: #004087
+}
+
+.zentriert{
+  text-align: center;
+}
+
+.text{
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Styling für den HSV-Button */
+.hsv-button {
+  background-color: #005CA9; /* HSV Blau */
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 0 0 2px #000000; /* Schwarzer Akzent im Stil des Logos */
+  transition: transform 0.2s, opacity 0.5s ease;
+  position: relative;
+  outline: none;
+}
+
+.hsv-button:hover {
+  transform: scale(1.05);
+  background-color: #004B8A;
+}
+
+/* Klasse zum Ausblenden des Buttons */
+.hsv-button.fade-out {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none; /* Verhindert mehrfaches Klicken beim Ausblenden */
+}
+
+/* Styling für die einzelnen Konfetti-Teilchen */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  border-radius: 2px;
+  animation: flyUp 1.2s ease-out forwards;
+  z-index: 999;
+}
+
+/* Die Konfetti-Animation nach oben */
+@keyframes flyUp {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    /* Nutzt CSS-Variablen, die per JS für jedes Teilchen zufällig berechnet werden */
+    transform: translate(var(--x), var(--y)) rotate(var(--r));
+    opacity: 0;
+  }
+}
