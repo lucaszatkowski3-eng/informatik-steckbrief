@@ -64,3 +64,8 @@ body{
     opacity: 0;
   }
 }
+
+.bild{
+  width: 600px;
+  height: auto;
+}
