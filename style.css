@@ -1,6 +1,6 @@
 body{
   color: white;
-  background-color: #004087
+  background-color: #1E5CB3
 }
 
 .zentriert{
@@ -13,59 +13,370 @@ body{
   text-align: center;
 }
 
-/* Styling für den HSV-Button */
-.hsv-button {
-  background-color: #005CA9; /* HSV Blau */
-  color: #ffffff;
-  border: 3px solid #ffffff;
-  border-radius: 4px;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 0 0 2px #000000; /* Schwarzer Akzent im Stil des Logos */
-  transition: transform 0.2s, opacity 0.5s ease;
-  position: relative;
-  outline: none;
-}
-
-.hsv-button:hover {
-  transform: scale(1.05);
-  background-color: #004B8A;
-}
-
-/* Klasse zum Ausblenden des Buttons */
-.hsv-button.fade-out {
-  opacity: 0;
-  transform: scale(0.9);
-  pointer-events: none; /* Verhindert mehrfaches Klicken beim Ausblenden */
-}
-
-/* Styling für die einzelnen Konfetti-Teilchen */
-.confetti {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  pointer-events: none;
-  border-radius: 2px;
-  animation: flyUp 1.2s ease-out forwards;
-  z-index: 999;
-}
-
-/* Die Konfetti-Animation nach oben */
-@keyframes flyUp {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    /* Nutzt CSS-Variablen, die per JS für jedes Teilchen zufällig berechnet werden */
-    transform: translate(var(--x), var(--y)) rotate(var(--r));
-    opacity: 0;
-  }
-}
-
-.bild{
-  width: 600px;
+.zentriertesbild{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%; 
+   width: 20%; 
   height: auto;
 }
+
+.animation1{
+  margin: 0;
+  padding: 0;
+}
+.animation1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+}
+.animation1{
+  text-decoration: none;
+  color: inherit;
+  font-size: 24px;
+}
+
+.animation1{
+  font-weight: 700;
+  text-align: center;
+  font-size: 40px;
+  font-family: Hack, sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shine 8s linear infinite;
+  position: relative;
+}
+
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+
+.keyboard{
+  background-color: #1E5CB3;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+
+
+.key {
+  font-size: 15vw;
+  display: inline-block;
+  letter-spacing: -1vw;
+  transition: transform 0.2s;
+}
+
+
+
+@keyframes pressDown1 {
+  30%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown2 {
+  70%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown3 {
+  30%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown4 {
+  40%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown5 {
+  20%,
+  30%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown6 {
+  60%,
+  70%,
+  100% {
+    transform: translateY(0);
+  }
+  65% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown7 {
+  10%,
+  20%,
+  100% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown8 {
+  35%,
+  45%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(10px);
+  }
+}
+
+
+
+.key:nth-child(1) {
+  animation: pressDown1 2s infinite;
+}
+
+.key:nth-child(2) {
+  animation: pressDown2 3s infinite;
+}
+
+.key:nth-child(3) {
+  animation: pressDown3 4s infinite;
+}
+
+.key:nth-child(4) {
+  animation: pressDown4 2.5s infinite;
+}
+
+.key:nth-child(5) {
+  animation: pressDown5 2.5s infinite;
+}
+
+.key:nth-child(6) {
+  animation: pressDown6 3.5s infinite;
+}
+
+.key:nth-child(7) {
+  animation: pressDown7 2.2s infinite;
+}
+
+.key:nth-child(8) {
+  animation: pressDown8 3.2s infinite;
+}
+
+.zentriert2{
+  text-align: center;
+  font-size: 100px;
+}
+
+.zentriertesbild2{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%; 
+   width: 40%; 
+  height: auto;
+}
+
+.zentriert3{
+  text-align: center;
+  font-size: 20px;
+}
+
+:root {
+	--bg: #0f1114;
+	--fg: #e8e8ea;
+	--muted: #9aa0a6;
+	--accent: #ffd36b;
+	--font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter,
+		"Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+	--spark-size: 28px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body1 {
+	margin: 0;
+	min-height: 100svh;
+	display: grid;
+	place-items: center;
+	background: radial-gradient(ellipse at center, #1a1d22 0%, #0f1114 100%);
+	color: var(--fg);
+	font-family: var(--font);
+}
+
+.wrap {
+	display: grid;
+	gap: 1rem;
+	align-items: center;
+	text-align: center;
+	padding: 2rem;
+}
+
+.title {
+	font-size: clamp(3rem, 8vw, 6rem);
+	font-weight: 900;
+	letter-spacing: 0.05em;
+	line-height: 0.9;
+	margin: 0;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	font-family: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+		"Segoe UI", Roboto, sans-serif;
+	color: #ffffff;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ch {
+	position: relative;
+	display: inline-block;
+	padding-inline: 0.05em;
+	transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	transform-origin: center bottom;
+}
+
+.title:hover .ch {
+	transform: translateY(-4px) scale(1.05);
+	text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.title:hover .ch:nth-child(1) {
+	transform: translateY(-6px) rotate(-2deg) scale(1.1);
+	transition-delay: 0.05s;
+}
+
+.title:hover .ch:nth-child(2) {
+	transform: translateY(-3px) rotate(1deg) scale(1.08);
+	transition-delay: 0.1s;
+}
+
+.title:hover .ch:nth-child(3) {
+	transform: translateY(-5px) rotate(-1deg) scale(1.12);
+	transition-delay: 0.15s;
+}
+
+.title:hover .ch:nth-child(4) {
+	transform: translateY(-2px) rotate(2deg) scale(1.06);
+	transition-delay: 0.2s;
+}
+
+.title:hover .ch:nth-child(5) {
+	transform: translateY(-7px) rotate(-1deg) scale(1.15);
+	transition-delay: 0.25s;
+}
+
+.title:hover .ch:nth-child(6) {
+	transform: translateY(-4px) rotate(1deg) scale(1.09);
+	transition-delay: 0.3s;
+}
+
+.title:hover .ch:nth-child(7) {
+	transform: translateY(-3px) rotate(-2deg) scale(1.07);
+	transition-delay: 0.35s;
+}
+
+.title:hover .ch:nth-child(8) {
+	transform: translateY(-6px) rotate(1deg) scale(1.11);
+	transition-delay: 0.4s;
+}
+
+.title:hover .ch:nth-child(9) {
+	transform: translateY(-2px) rotate(-1deg) scale(1.08);
+	transition-delay: 0.45s;
+}
+
+.spark {
+	position: absolute;
+	inset: auto auto auto auto;
+	width: var(--spark-size);
+	height: var(--spark-size);
+	pointer-events: none;
+}
+
+.spark-canvas {
+	width: 100%;
+	height: 100%;
+	display: block;
+	filter: drop-shadow(0 0 0.4rem var(--accent));
+}
+
+.spark[data-spark="center"] {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 240px;
+	height: 240px;
+}
+
+.hint {
+	color: var(--muted);
+	font-size: 0.9rem;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	margin-top: 1.5rem;
+	opacity: 0.7;
+	transition: opacity 0.3s ease;
+}
+
+.hint:hover {
+	opacity: 1;
+}
+
+html[data-sparkles="off"] .spark-canvas {
+	opacity: 0;
+	filter: none;
+	transition: opacity 0.18s ease;
+}
+
+.title {
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05),
+		0 0 22px rgba(255, 211, 107, 0.07);
+}
+
