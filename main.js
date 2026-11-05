@@ -1,47 +1,54 @@
-document.getElementById('hsv-fan-btn').addEventListener('click', function(e) {
-  const button = this;
-  const rect = button.getBoundingClientRect();
-  
-  // HSV Vereinsfarben für das Konfetti
-  const colors = ['#005CA9', '#FFFFFF', '#000000']; 
-  const confettiCount = 50;
+import { DotLottie } from "https://esm.sh/@lottiefiles/dotlottie-web";
 
-  // Konfetti-Teilchen erstellen
-  for (let i = 0; i < confettiCount; i++) {
-    const confetti = document.createElement('div');
-    confetti.classList.add('confetti');
+const SPARKLE_URL =
+	"https://lottie.host/aa8461b8-0395-40aa-9916-3aa8737d127d/wgZlYJ42zU.lottie";
 
-    // Zufällige HSV-Farbe auswählen
-    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+const word = document.querySelector("#word");
+const sparkElement = document.querySelector(".spark");
 
-    // Startposition genau auf dem Button (zentriert)
-    confetti.style.left = (rect.left + rect.width / 2 + window.scrollX) + 'px';
-    confetti.style.top = (rect.top + window.scrollY) + 'px';
+const canvas = document.createElement("canvas");
+canvas.width = 240;
+canvas.height = 240;
+canvas.className = "spark-canvas";
+sparkElement.appendChild(canvas);
 
-    // Zufällige Flugrichtung nach oben (negatives Y) sowie links/rechts (X)
-    const xSpread = (Math.random() - 0.5) * 200; // Streuung nach links/rechts
-    const ySpread = -100 - Math.random() * 150;  // Flughöhe nach oben
-    const rotation = Math.random() * 360 + 'deg';
-
-    // Variablen an das CSS übergeben
-    confetti.style.setProperty('--x', `${xSpread}px`);
-    confetti.style.setProperty('--y', `${ySpread}px`);
-    confetti.style.setProperty('--r', rotation);
-
-    // Teilchen zum Body hinzufügen
-    document.body.appendChild(confetti);
-
-    // Element nach Ende der Animation aus dem DOM löschen
-    confetti.addEventListener('animationend', function() {
-      confetti.remove();
-    });
-  }
-
-  // Button ausblenden
-  button.classList.add('fade-out');
-
-  // Button komplett entfernen, sobald er unsichtbar ist
-  setTimeout(() => {
-    button.remove();
-  }, 500);
+const player = new DotLottie({
+	canvas: canvas,
+	loop: true,
+	autoplay: false,
+	src: SPARKLE_URL,
+	renderConfig: {
+		clearCanvas: true,
+		backgroundAlpha: 0,
+		devicePixelRatio: Math.min(2, window.devicePixelRatio || 1)
+	}
 });
+
+player.setSpeed(1);
+
+const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)")
+	.matches;
+if (prefersReduced) {
+	setSparkles(false);
+} else {
+	setSparkles(false);
+}
+
+word.addEventListener("mouseenter", () => {
+	setSparkles(true);
+});
+
+word.addEventListener("mouseleave", () => {
+	setSparkles(false);
+});
+
+function setSparkles(isOn) {
+	document.documentElement.toggleAttribute("data-sparkles", isOn ? "on" : "off");
+	if (isOn) {
+		player.play();
+	} else {
+		player.pause();
+	}
+}
+
+setSparkles(false);
